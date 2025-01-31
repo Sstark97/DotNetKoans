@@ -15,8 +15,8 @@ public class AboutDictionary : Koan
 		dict.Add("Value", "Key");
 		var firstElement = dict.First();
 
-		Assert.Equal(FILL_ME_IN, firstElement.Key); // Key
-		Assert.Equal(FILL_ME_IN, firstElement.Value); // Value
+		Assert.Equal("Value", firstElement.Key); // Key
+		Assert.Equal("Key", firstElement.Value); // Value
 	}
 
 	//Pass keys to get their values.
@@ -30,7 +30,7 @@ public class AboutDictionary : Koan
 		dict.Add("Japan", "Tokyo");
 
 		var key = "Japan";
-		Assert.Equal(FILL_ME_IN, dict[key]); // What is the value?            
+		Assert.Equal("Tokyo", dict[key]); // What is the value?            
 	}
 
 	//Check if a key exists in Dictionary.
@@ -42,6 +42,7 @@ public class AboutDictionary : Koan
 		dict.Add("United Kingdom", "London");
 		dict.Add("Poland", "Warsaw");
 		dict.Add("Japan", "Tokyo");
+		dict.Add("Jeff", "Name");
 
 		var key = "Jeff";
 		Assert.True(true, dict.ContainsKey(key).ToString()); // How to make this statement true?          
@@ -56,6 +57,7 @@ public class AboutDictionary : Koan
 		dict.Add("United Kingdom", "London");
 		dict.Add("Poland", "Warsaw");
 		dict.Add("Japan", "Tokyo");
+		dict.Add("Emya", "Archer");
 
 		var val = "Archer";
 		Assert.True(true, dict.ContainsValue(val).ToString()); // How to make this statement true?          
@@ -76,7 +78,7 @@ public class AboutDictionary : Koan
 		var expectedValue = "New Delhi";
 
 		//May be you should update this
-		//dict[key] = FILL_ME_IN;
+		dict[key] = expectedValue;
 
 		Assert.Equal(expectedValue, dict[key]); // How to make this statement true?          
 	}
@@ -96,6 +98,8 @@ public class AboutDictionary : Koan
 
 		if (dict.ContainsKey(keyToRemove))
 			dict.Remove(keyToRemove);
+		
+		dict.Add("Bruce", "Wayne");
             
 		Assert.True(dict.ContainsKey(keyToRemove)); // How to make this statement true?          
 	}
