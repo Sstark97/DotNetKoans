@@ -43,7 +43,7 @@ namespace DotNetKoans.Koans
             otherThread.Start();
 
             result += Thread.CurrentThread.Name;
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal("MainThread", result);
         }
 
         [Step(2)]
@@ -66,7 +66,7 @@ namespace DotNetKoans.Koans
             otherThread.Join();
 
             result += Thread.CurrentThread.Name;
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal("OtherThreadMainThread", result);
         }
 
         [Step(3)]
@@ -85,7 +85,7 @@ namespace DotNetKoans.Koans
             thread2.Start();
             thread2.Join();
 
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal("HELLOWORLD", result);
         }
 
         [Step(4)]
@@ -97,7 +97,7 @@ namespace DotNetKoans.Koans
             thread.Start(100);
             thread.Join();
 
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(500, result);
         }
 
 
@@ -142,10 +142,10 @@ namespace DotNetKoans.Koans
                 {
                     //Remove this statement after you are done with this koan because
                     //it can cause other koans to take longer to run.
-                    Thread.Sleep(100);
+                    //Thread.Sleep(100);
 
                     //Just uncomment this code
-                    //lock (lockObject)
+                    lock (lockObject)
                     {
                         SumResult++;
                     }
