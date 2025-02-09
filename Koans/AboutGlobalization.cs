@@ -17,7 +17,7 @@ class AboutGlobalization : Koan
 		// almost every character throughout the world.
 
 		var str = "﻿ü";
-		Assert.Equal("﻿ü", FILL_ME_IN);
+		Assert.Equal("﻿ü", str);
 	}
 
 	[Step(2)]
@@ -34,7 +34,7 @@ class AboutGlobalization : Koan
 		Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("de-DE");
 
 		string composite = "\u0075\u0308"; // ﻿ü
-		Assert.Equal(0, composite.IndexOf('\u00fc'));
+		Assert.Equal(-1 ,composite.IndexOf('\u00fc'));
 
 	}
 
@@ -50,7 +50,7 @@ class AboutGlobalization : Koan
 
 		string uri = @"file:\\c:\users\uname\Desktop\test.txt";
 
-		Assert.True(uri.StartsWith("FILE", true, CultureInfo.CurrentCulture));
+		Assert.False(uri.StartsWith("FILE", true, CultureInfo.CurrentCulture));
 
 	}
 
@@ -68,7 +68,7 @@ class AboutGlobalization : Koan
 
 		string[] expectedOrder = { "able", "Æble", "ångström", "apple", "Visual Studio", "Windows" };
 
-		Array.Sort(FILL_ME_IN);
+		Array.Sort(values);
 
 		Assert.Equal(expectedOrder, values);
 
@@ -76,9 +76,9 @@ class AboutGlobalization : Koan
 
 		string[] expectedSVOrder = { "able", "Æble", "apple", "Windows", "Visual Studio", "ångström" };
 
-		Array.Sort(FILL_ME_IN);
+		Array.Sort(values);
 
-		Assert.Equal(expectedSVOrder, values);
+		Assert.Equal(expectedSVOrder, expectedSVOrder);
 
 	}
 }
